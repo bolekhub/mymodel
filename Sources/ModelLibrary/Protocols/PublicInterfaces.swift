@@ -5,7 +5,7 @@
 //  Created by Boris Chirino on 8/9/22.
 //
 
-public protocol VideoSourceItemRepresentable {
+public protocol VideoSourceItemRepresentable: Codable {
     var thumbnail: String { get }
     var title: String { get }
     var subtitle: String { get }
@@ -13,11 +13,11 @@ public protocol VideoSourceItemRepresentable {
     var sources: [String] { get }
 }
 
-public protocol CategoryRepresentable {
-    var name: String
-    var videos: [VideoSourceItemRepresentable]
+public protocol CategoryRepresentable: Codable {
+    var name: String { get }
+    var videos: [VideoSourceItemRepresentable] { get }
 }
 
-public protocol CatalogRepresentable {
+public protocol CatalogRepresentable: Codable {
     var categories: [CategoryRepresentable] { get }
 }
