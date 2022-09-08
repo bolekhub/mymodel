@@ -7,7 +7,8 @@
 
 import Foundation
 
-public protocol VideoSourceItemRepresentable: Codable, Identifiable where ID == String {
+
+public protocol VideoSourceItemRepresentable: Codable {
     var thumbnail: String { get }
     var title: String { get }
     var subtitle: String { get }
@@ -15,17 +16,9 @@ public protocol VideoSourceItemRepresentable: Codable, Identifiable where ID == 
     var sources: [String] { get }
 }
 
-public extension VideoSourceItemRepresentable {
-    var id: ID {
-        get {
-            UUID().uuidString
-        }
-    }
-}
-
 public protocol CategoryRepresentable: Codable {
     var name: String { get }
-    var videos: [VideoSourceItemRepresentable<String>] { get }
+    var videos: [VideoSourceItemRepresentable] { get }
 }
 
 public protocol CatalogRepresentable: Codable {
