@@ -12,3 +12,12 @@ public protocol VideoSourceItemRepresentable {
     var description: String { get }
     var sources: [String] { get }
 }
+
+public protocol CategoryRepresentable {
+    var name: String
+    var videos: [VideoSourceItemRepresentable]
+}
+
+public protocol CatalogRepresentable {
+    var categories: [CategoryRepresentable] { get }
+}
